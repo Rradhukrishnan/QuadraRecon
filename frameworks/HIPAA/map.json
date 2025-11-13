@@ -8,50 +8,30 @@
     "emptyCheckDefaultMsg": "<small><i>Manual verification required. Please provide evidence of compliance with this HIPAA Security Rule requirement.</i></small>"
   },
   "mapping": {
-    "Administrative Safeguards": {
-      "164.308(a)(1) - Security Officer": [],
-      "164.308(a)(2) - Assigned Security Responsibilities": ["iam.supportRoleExists"],
-      "164.308(a)(3) - Workforce Training and Access Management": ["iam.usersMfaEnabled", "iam.noFullAdminPolicies"],
-      "164.308(a)(4) - Information Access Management": ["iam.noInlinePolicy", "iam.noUserPolicies", "NetworkSecurity"],
-      "164.308(a)(5) - Security Awareness and Training": [],
-      "164.308(a)(6) - Security Incident Procedures": ["guardduty.isEnabled", "securityhub.isEnabled"],
-      "164.308(a)(7) - Contingency Plan": ["backup.resourcesProtectedByBackupPlan", "rds.instanceBackupEnabled", "AutoScaling", "HealthChecks"],
-      "164.308(a)(8) - Evaluation": ["cloudtrail.multiRegionTrailEnabled"]
+    "IAM.": {
+      "1": ["iam.FullAdminAccess"],
+      "2": ["iam.mfaActive"],
+      "3": ["iam.rootMfaActive"],
+      "4": ["iam.passwordPolicy"],
+      "5": ["iam.hasAccessKeyNoRotate90days"],
+      "6": ["iam.InlinePolicy"]
     },
-    "Physical Safeguards": {
-      "164.310(a)(1) - Facility Access Controls": [],
-      "164.310(a)(2) - Workstation Use": [],
-      "164.310(b) - Workstation Security": [],
-      "164.310(c) - Device and Media Controls": []
+    "S3.": {
+      "1": ["s3.ServerSideEncrypted"],
+      "2": ["s3.BucketVersioning"],
+      "3": ["s3.PublicAccessBlock"],
+      "4": ["s3.TlsEnforced"]
     },
-    "Technical Safeguards": {
-      "164.312(a)(1) - Access Control": ["iam.passwordPolicy", "iam.mfaEnabledForConsoleUsers", "iam.accessKeysRotated", "NetworkSecurity", "TaskSecurity"],
-      "164.312(a)(2) - Audit Controls": ["cloudtrail.multiRegionTrailEnabled", "cloudtrail.cloudwatchLogsEnabled", "cloudtrail.logFileValidationEnabled", "ExecuteCommandLogging", "ServiceLogging"],
-      "164.312(b) - Integrity": ["s3.bucketVersioning", "cloudtrail.logFileValidationEnabled"],
-      "164.312(c) - Person or Entity Authentication": ["iam.rootMfaActive", "iam.usersMfaEnabled"],
-      "164.312(d) - Transmission Security": ["cloudfront.viewerPolicyHttps", "apigateway.endpointTypesPrivate"]
+    "EC2.": {
+      "1": ["ec2.EBSEncrypted"],
+      "2": ["ec2.VPCFlowLogEnabled"],
+      "3": ["ec2.SGSensitivePortOpenToAll"]
     },
-    "Encryption Requirements": {
-      "164.312(a)(2)(iv) - Encryption and Decryption": ["s3.bucketEncryption", "rds.instanceEncryptionEnabled", "kms.cmkBackingKeyRotationEnabled", "ExecuteCommandEncryption"],
-      "164.312(e)(1) - Transmission Security": ["cloudfront.viewerPolicyHttps"],
-      "164.312(e)(2)(ii) - Encryption": ["s3.bucketEncryption", "rds.instanceEncryptionEnabled"]
+    "GuardDuty.": {
+      "1": ["iam.enableGuardDuty"]
     },
-    "Access Management": {
-      "164.308(a)(4)(i) - Information Access Management": ["iam.noFullAdminPolicies"],
-      "164.308(a)(4)(ii)(A) - Isolating Healthcare Clearinghouse Functions": [],
-      "164.308(a)(4)(ii)(B) - Access Authorization": ["iam.usersMfaEnabled"],
-      "164.308(a)(4)(ii)(C) - Access Establishment and Modification": ["iam.accessKeysRotated"]
-    },
-    "Audit and Monitoring": {
-      "164.308(a)(1)(ii)(D) - Information System Activity Review": ["cloudtrail.cloudwatchLogsEnabled", "cloudwatch.hasAlarms", "ContainerInsights"],
-      "164.312(b) - Audit Controls": ["cloudtrail.multiRegionTrailEnabled"],
-      "164.308(a)(6)(ii) - Response and Reporting": ["guardduty.isEnabled"]
-    },
-    "Data Protection": {
-      "164.308(a)(7)(ii)(A) - Data Backup Plan": ["backup.resourcesProtectedByBackupPlan", "rds.instanceBackupEnabled"],
-      "164.308(a)(7)(ii)(B) - Disaster Recovery Plan": ["rds.instanceMultiAZ"],
-      "164.308(a)(7)(ii)(C) - Emergency Mode Operation Plan": [],
-      "164.312(c)(1) - Integrity Controls": ["s3.bucketVersioning"]
+    "KMS.": {
+      "1": ["kms.KeyRotationEnabled"]
     }
   }
 }

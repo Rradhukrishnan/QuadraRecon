@@ -13,102 +13,32 @@
     }
   },
   "mapping": {
-    "CC1.0 - Control Environment": {
-      "CC1.1 - Demonstrates commitment to integrity and ethical values": [],
-      "CC1.2 - Board oversight of governance": [],
-      "CC1.3 - Management establishes structure, authority, and responsibility": [],
-      "CC1.4 - Demonstrates commitment to competence": [],
-      "CC1.5 - Enforces accountability": ["iam.passwordPolicy", "iam.rootMfaActive"]
+    "IAM.": {
+      "1": ["iam.FullAdminAccess"],
+      "2": ["iam.mfaActive"],
+      "3": ["iam.rootMfaActive"],
+      "4": ["iam.passwordPolicy"],
+      "5": ["iam.hasAccessKeyNoRotate90days"],
+      "6": ["iam.rootHasAccessKey"],
+      "7": ["iam.InlinePolicy"]
     },
-    "CC2.0 - Communication and Information": {
-      "CC2.1 - Information to support the functioning of internal control": ["cloudtrail.multiRegionTrailEnabled", "cloudtrail.logFileValidationEnabled"],
-      "CC2.2 - Internal communication of objectives and responsibilities": [],
-      "CC2.3 - Communication with external parties": ["iam.hasAlternateContact"]
+    "S3.": {
+      "1": ["s3.ServerSideEncrypted"],
+      "2": ["s3.PublicAccessBlock"],
+      "3": ["s3.BucketVersioning"],
+      "4": ["s3.BucketLogging"],
+      "5": ["s3.BucketLifecycle"]
     },
-    "CC3.0 - Risk Assessment": {
-      "CC3.1 - Specifies suitable objectives": [],
-      "CC3.2 - Identifies and analyzes risk": ["guardduty.isEnabled", "securityhub.isEnabled"],
-      "CC3.3 - Considers potential for fraud": ["cloudtrail.cloudwatchLogsEnabled"],
-      "CC3.4 - Identifies and assesses significant change": ["config.isEnabled"]
+    "EC2.": {
+      "1": ["ec2.SGSensitivePortOpenToAll"],
+      "2": ["ec2.EBSEncrypted"],
+      "3": ["ec2.EC2DetailedMonitor"]
     },
-    "CC4.0 - Monitoring Activities": {
-      "CC4.1 - Evaluates and communicates deficiencies": ["cloudwatch.hasAlarms"],
-      "CC4.2 - Evaluates and communicates deficiencies": ["cloudtrail.cloudwatchLogsEnabled"]
+    "GuardDuty.": {
+      "1": ["iam.enableGuardDuty"]
     },
-    "CC5.0 - Control Activities": {
-      "CC5.1 - Selects and develops control activities": ["iam.hasOrganization"],
-      "CC5.2 - Selects and develops general controls over technology": ["iam.accessKeysRotated", "iam.mfaEnabledForConsoleUsers"],
-      "CC5.3 - Deploys through policies and procedures": ["iam.noRootUserAccessKey"]
-    },
-    "CC6.0 - Logical and Physical Access Controls": {
-      "CC6.1 - Restricts logical access to authorized users": ["iam.usersMfaEnabled", "iam.noInlinePolicy", "iam.noUserPolicies"],
-      "CC6.2 - Manages identification and authentication": ["iam.passwordPolicy"],
-      "CC6.3 - Manages logical access": ["iam.supportRoleExists", "iam.noFullAdminPolicies"],
-      "CC6.4 - Restricts physical access": [],
-      "CC6.5 - Manages production changes": [],
-      "CC6.6 - Restricts logical access to information assets": ["s3.bucketEncryption", "s3.bucketPublicAccessBlock", "s3.bucketVersioning"],
-      "CC6.7 - Restricts the transmission, movement, and removal of information": ["s3.bucketLoggingEnabled", "s3.bucketPublicAccessBlock"],
-      "CC6.8 - Manages endpoints": ["ec2.securityGroupsHasDescription", "ec2.securityGroupsRestrictedSSH", "ec2.securityGroupsRestrictedRDP", "ecs.NetworkSecurity", "ecs.TaskSecurity"]
-    },
-    "CC7.0 - System Operations": {
-      "CC7.1 - Manages infrastructure, software, and data": ["ec2.instanceDetailedMonitoringEnabled", "ec2.ebsOptimizedEnabled", "ecs.ContainerInsights", "ecs.ServiceLogging"],
-      "CC7.2 - Manages security incidents": ["guardduty.isEnabled", "securityhub.isEnabled", "ecs.ExecuteCommandLogging"],
-      "CC7.3 - Manages business continuity": ["backup.resourcesProtectedByBackupPlan", "rds.instanceBackupEnabled", "ecs.AutoScaling", "ecs.HealthChecks"],
-      "CC7.4 - Recovers from incidents": ["rds.instanceMultiAZ", "ec2.instanceEbsBackupEnabled", "ecs.CapacityProviders"]
-    },
-    "CC8.0 - Change Management": {
-      "CC8.1 - Manages changes to infrastructure, software, and data": ["cloudtrail.multiRegionTrailEnabled"],
-      "CC8.2 - Designs and develops changes to infrastructure and software": [],
-      "CC8.3 - Deploys changes to infrastructure and software": []
-    },
-    "CC9.0 - Risk Mitigation": {
-      "CC9.1 - Identifies, selects, and develops risk mitigation activities": ["kms.cmkBackingKeyRotationEnabled", "kms.keyRotationEnabled"],
-      "CC9.2 - Assesses and manages risk associated with vendors and business partners": []
-    },
-    "A1.0 - Availability": {
-      "A1.1 - Maintains, monitors, and evaluates current processing capacity": ["cloudwatch.hasAlarms", "ec2.instanceDetailedMonitoringEnabled"],
-      "A1.2 - Maintains redundancy, data backup, and disaster recovery": ["rds.instanceMultiAZ", "ec2.instanceEbsBackupEnabled", "backup.resourcesProtectedByBackupPlan"],
-      "A1.3 - Maintains recovery plan": ["backup.resourcesProtectedByBackupPlan"]
-    },
-    "C1.0 - Confidentiality": {
-      "C1.1 - Identifies confidential information": ["s3.bucketTaggingEnabled"],
-      "C1.2 - Protects confidential information": ["s3.bucketEncryption", "rds.instanceEncryptionEnabled", "kms.cmkBackingKeyRotationEnabled", "ecs.ExecuteCommandEncryption"]
-    },
-    "P1.0 - Privacy": {
-      "P1.1 - Communicates personal information policies": [],
-      "P1.2 - Provides notice to data subjects": []
-    },
-    "P2.0 - Choice and Consent": {
-      "P2.1 - Describes choices available and obtains consent": []
-    },
-    "P3.0 - Collection": {
-      "P3.1 - Collects personal information consistent with objectives": []
-    },
-    "P4.0 - Use, Retention, and Disposal": {
-      "P4.1 - Limits use of personal information": ["s3.bucketLifecycleEnabled"],
-      "P4.2 - Retains personal information consistent with objectives": ["s3.bucketLifecycleEnabled"],
-      "P4.3 - Disposes of personal information": ["s3.bucketLifecycleEnabled"]
-    },
-    "P5.0 - Access": {
-      "P5.1 - Allows data subjects to access personal information": [],
-      "P5.2 - Discloses personal information consistent with objectives": []
-    },
-    "P6.0 - Disclosure to Third Parties": {
-      "P6.1 - Discloses personal information to third parties consistent with objectives": [],
-      "P6.2 - Assesses whether third parties comply with privacy commitments": []
-    },
-    "P7.0 - Quality": {
-      "P7.1 - Maintains accurate and complete personal information": []
-    },
-    "P8.0 - Monitoring and Enforcement": {
-      "P8.1 - Monitors compliance with privacy policies": ["cloudtrail.multiRegionTrailEnabled", "cloudtrail.cloudwatchLogsEnabled"]
-    },
-    "PI1.0 - Processing Integrity": {
-      "PI1.1 - Processes inputs accurately, completely, and timely": ["cloudwatch.hasAlarms"],
-      "PI1.2 - Maintains integrity during processing": ["cloudtrail.logFileValidationEnabled"],
-      "PI1.3 - Processes outputs accurately and completely": ["cloudwatch.hasAlarms"],
-      "PI1.4 - Maintains integrity during storage": ["s3.bucketVersioning", "s3.bucketEncryption", "rds.instanceEncryptionEnabled"],
-      "PI1.5 - Maintains integrity during transmission": ["cloudfront.viewerPolicyHttps", "apigateway.endpointTypesPrivate"]
+    "KMS.": {
+      "1": ["kms.KeyRotationEnabled"]
     }
   }
 }
