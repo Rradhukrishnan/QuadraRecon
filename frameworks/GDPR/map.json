@@ -29,6 +29,9 @@
     },
     "KMS.": {
       "1": ["kms.KeyRotationEnabled"]
+    },
+    "Route53.": {
+      "1": ["route53.QueryLoggingEnabled"]
     }
   }
 }

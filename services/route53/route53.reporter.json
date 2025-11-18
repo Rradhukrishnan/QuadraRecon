@@ -1,0 +1,236 @@
+{
+    "DNSSECEnabled": {
+        "category": "S",
+        "^description": "DNSSEC is not enabled for {$COUNT} hosted zones. DNSSEC provides authentication of DNS data, authenticated denial of existence, and data integrity, but not availability or confidentiality.",
+        "shortDesc": "Enable DNSSEC",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[DNSSEC in Route 53]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-configuring-dnssec.html>"
+        ]
+    },
+    "QueryLoggingEnabled": {
+        "category": "S",
+        "^description": "Query logging is not enabled for {$COUNT} hosted zones. DNS query logging provides visibility into DNS queries made to your hosted zones.",
+        "shortDesc": "Enable Query Logging",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Query Logging]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/query-logs.html>"
+        ]
+    },
+    "RecordSetCount": {
+        "category": "P",
+        "^description": "{$COUNT} hosted zones have a high number of record sets. Consider optimizing DNS structure or splitting zones for better performance.",
+        "shortDesc": "Optimize Record Count",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 1,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Route 53 Limits]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/DNSLimitations.html>"
+        ]
+    },
+    "PrivateZoneVPCAssociation": {
+        "category": "R",
+        "^description": "{$COUNT} private hosted zones have insufficient VPC associations. Associate multiple VPCs for redundancy and availability.",
+        "shortDesc": "Add VPC Associations",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Private Hosted Zones]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/hosted-zones-private.html>"
+        ]
+    },
+    "AliasRecordUsage": {
+        "category": "C",
+        "^description": "{$COUNT} hosted zones have low alias record usage. Use alias records instead of CNAME records for AWS resources to reduce costs and improve performance.",
+        "shortDesc": "Use More Alias Records",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": -1,
+        "needFullTest": 0,
+        "ref": [
+            "[Alias Records]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html>"
+        ]
+    },
+    "HealthCheckAssociation": {
+        "category": "R",
+        "^description": "{$COUNT} hosted zones have no health checks configured. Configure health checks for critical records to enable automatic failover.",
+        "shortDesc": "Configure Health Checks",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Health Checks]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/dns-failover.html>"
+        ]
+    },
+    "HealthCheckRedundancy": {
+        "category": "R",
+        "^description": "{$COUNT} health checks have insufficient checker redundancy. Ensure multiple checkers for reliable health monitoring.",
+        "shortDesc": "Improve Health Check Redundancy",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Health Check Status]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-monitor-view-status.html>"
+        ]
+    },
+    "HealthCheckType": {
+        "category": "O",
+        "^description": "{$COUNT} health checks use unusual types. Review health check configuration for optimal monitoring.",
+        "shortDesc": "Review Health Check Types",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Health Check Types]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-types.html>"
+        ]
+    },
+    "HealthCheckInterval": {
+        "category": "C",
+        "^description": "{$COUNT} health checks have suboptimal intervals. Very frequent checks increase costs, while long intervals delay failover detection.",
+        "shortDesc": "Optimize Health Check Intervals",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Health Check Pricing]<https://aws.amazon.com/route53/pricing/>"
+        ]
+    },
+    "FailureThreshold": {
+        "category": "R",
+        "^description": "{$COUNT} health checks have inappropriate failure thresholds. Too sensitive causes false alarms, too tolerant delays failover.",
+        "shortDesc": "Adjust Failure Thresholds",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Health Check Configuration]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating.html>"
+        ]
+    },
+    "CloudWatchIntegration": {
+        "category": "O",
+        "^description": "{$COUNT} health checks lack CloudWatch alarm integration. Integrate with CloudWatch for better monitoring and alerting.",
+        "shortDesc": "Add CloudWatch Integration",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[CloudWatch Integration]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/health-checks-creating-values.html>"
+        ]
+    },
+    "HealthCheckTagging": {
+        "category": "O",
+        "^description": "{$COUNT} health checks are not properly tagged. Add tags for better resource management and cost allocation.",
+        "shortDesc": "Add Resource Tags",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Tagging Resources]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/tagging-resources.html>"
+        ]
+    },
+    "EndpointDirection": {
+        "category": "O",
+        "^description": "{$COUNT} resolver endpoints have invalid direction configuration. Ensure proper inbound/outbound configuration.",
+        "shortDesc": "Fix Endpoint Direction",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Resolver Endpoints]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver.html>"
+        ]
+    },
+    "IPAddressRedundancy": {
+        "category": "R",
+        "^description": "{$COUNT} resolver endpoints lack IP address redundancy. Configure multiple IP addresses for high availability.",
+        "shortDesc": "Add IP Redundancy",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[Resolver Endpoint IPs]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-getting-started.html>"
+        ]
+    },
+    "SecurityGroupAssociation": {
+        "category": "S",
+        "^description": "{$COUNT} resolver endpoints lack security group configuration. Configure security groups to control access.",
+        "shortDesc": "Configure Security Groups",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Resolver Security]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-getting-started.html>"
+        ]
+    },
+    "EndpointStatus": {
+        "category": "O",
+        "^description": "{$COUNT} resolver endpoints have status issues. Review and resolve endpoint configuration problems.",
+        "shortDesc": "Fix Endpoint Status",
+        "criticality": "H",
+        "downtime": 1,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": [
+            "[Troubleshooting Resolver]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-troubleshooting.html>"
+        ]
+    },
+    "ResolverEndpointTagging": {
+        "category": "O",
+        "^description": "{$COUNT} resolver endpoints are not properly tagged. Add tags for better resource management and cost allocation.",
+        "shortDesc": "Add Resource Tags",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": [
+            "[Tagging Resources]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/tagging-resources.html>"
+        ]
+    },
+    "CrossAZDeployment": {
+        "category": "R",
+        "^description": "{$COUNT} resolver endpoints lack cross-AZ deployment. Deploy across multiple Availability Zones for high availability.",
+        "shortDesc": "Deploy Across Multiple AZs",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": [
+            "[High Availability]<https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resolver-getting-started.html>"
+        ]
+    }
+}

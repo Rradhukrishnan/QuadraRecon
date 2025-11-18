@@ -32,6 +32,10 @@
     },
     "KMS.": {
       "1": ["kms.KeyRotationEnabled"]
+    },
+    "Route53.": {
+      "1": ["route53.DNSSECEnabled"],
+      "2": ["route53.QueryLoggingEnabled"]
     }
   }
 }
