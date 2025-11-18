@@ -33,16 +33,7 @@ class Config:
     
     # Service name mapping for renamed services
     SERVICE_NAME_MAPPING = {
-        'config': 'awsconfig',
-        'devops-guru': 'devopsguru',
-        'devopsguru': 'devopsguru',  # Handle both variations
-        'security-hub': 'securityhub',
-        'securityhub': 'securityhub',  # Handle both variations
-        'access-analyzer': 'accessanalyzer',
-        'accessanalyzer': 'accessanalyzer',  # Handle both variations
-        'inspector': 'inspector',  # Ensure proper mapping for inspector
-        'route53': 'route53',  # Ensure proper mapping for route53
-        'ssm': 'ssm'  # Ensure proper mapping for ssm
+        'config': 'awsconfig'
     }
     
     CURRENT_REGION = 'us-east-1'

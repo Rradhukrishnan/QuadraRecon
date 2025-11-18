@@ -4,7 +4,7 @@ from services.Service import Service
 from services.awsconfig.drivers.ConfigDriver import ConfigDriver
 from utils.Tools import _pi
 
-class Awsconfig(Service):
+class Config(Service):
     def __init__(self, region):
         super().__init__(region)
         self.region = region
