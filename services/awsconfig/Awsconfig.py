@@ -1,10 +1,10 @@
 import botocore
 from utils.Config import Config as UtilConfig
 from services.Service import Service
-from services.config.drivers.ConfigDriver import ConfigDriver
+from services.awsconfig.drivers.ConfigDriver import ConfigDriver
 from utils.Tools import _pi
 
-class Config(Service):
+class Awsconfig(Service):
     def __init__(self, region):
         super().__init__(region)
         self.region = region

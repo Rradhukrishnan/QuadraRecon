@@ -49,8 +49,8 @@
       "2": ["accessanalyzer.ActiveFindings"]
     },
     "Config.": {
-      "1": ["config.ConfigEnabled"],
-      "2": ["config.ComplianceStatus"]
+      "1": ["awsconfig.ConfigEnabled"],
+      "2": ["awsconfig.ComplianceStatus"]
     },
     "SecurityHub.": {
       "1": ["securityhub.HubEnabled"],

@@ -41,7 +41,7 @@
       "1": ["securityhub.HubEnabled"]
     },
     "Config.": {
-      "1": ["config.ConfigEnabled"]
+      "1": ["awsconfig.ConfigEnabled"]
     }
   }
 }

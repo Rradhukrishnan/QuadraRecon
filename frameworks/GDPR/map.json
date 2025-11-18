@@ -34,7 +34,7 @@
       "1": ["route53.QueryLoggingEnabled"]
     },
     "Config.": {
-      "1": ["config.ConfigEnabled"]
+      "1": ["awsconfig.ConfigEnabled"]
     }
   }
 }
