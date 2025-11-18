@@ -139,6 +139,18 @@ for acctId, cred in rolesCred.items():
         _cli_options['regions'] = regions
     
     services = _cli_options['services'].split(',')
+    
+    # Apply service name mapping
+    mapped_services = []
+    for service in services:
+        if service in Config.SERVICE_NAME_MAPPING:
+            mapped_service = Config.SERVICE_NAME_MAPPING[service]
+            print(f"DEBUG: Mapping service '{service}' to '{mapped_service}'")
+            mapped_services.append(mapped_service)
+        else:
+            mapped_services.append(service)
+    services = mapped_services
+    
     regions = _cli_options['regions'].split(',')
     
     Config.set('PARAMS_REGION_ALL', False)
