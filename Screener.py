@@ -42,6 +42,10 @@ class Screener:
         tempCount = 0
         service = service.split('::')
         
+        # Apply service name mapping early
+        if service[0] in Config.SERVICE_NAME_MAPPING:
+            service[0] = Config.SERVICE_NAME_MAPPING[service[0]]
+        
         _regions = ['GLOBAL'] if service[0] in Config.GLOBAL_SERVICES else regions
         
         scannedKey = 'scanned_'+service[0]
@@ -146,17 +150,11 @@ class Screener:
     def getServiceModuleDynamically(service):
         # .title() captilise the first character
         # e.g: services.iam.Iam
+        folder = service
+        if service in Config.KEYWORD_SERVICES:
+            folder = service + '_'
         
-        # Check if service name needs mapping
-        if service in Config.SERVICE_NAME_MAPPING:
-            folder = Config.SERVICE_NAME_MAPPING[service]
-            className = folder.title()
-        else:
-            folder = service
-            if service in Config.KEYWORD_SERVICES:
-                folder = service + '_'
-            className = service.title()
-        
+        className = service.title()
         module = 'services.' + folder + '.' + className
         
         ServiceClass = getattr(importlib.import_module(module), className)
