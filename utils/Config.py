@@ -31,6 +31,14 @@ class Config:
         'lambda'    
     ]
     
+    # Service name mapping for renamed services
+    SERVICE_NAME_MAPPING = {
+        'config': 'awsconfig',
+        'devops-guru': 'devopsguru',
+        'security-hub': 'securityhub',
+        'access-analyzer': 'accessanalyzer'
+    }
+    
     CURRENT_REGION = 'us-east-1'
     
     @staticmethod

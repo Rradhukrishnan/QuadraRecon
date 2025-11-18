@@ -146,11 +146,17 @@ class Screener:
     def getServiceModuleDynamically(service):
         # .title() captilise the first character
         # e.g: services.iam.Iam
-        folder = service
-        if service in Config.KEYWORD_SERVICES:
-            folder = service + '_'
         
-        className = service.title()
+        # Check if service name needs mapping
+        if service in Config.SERVICE_NAME_MAPPING:
+            folder = Config.SERVICE_NAME_MAPPING[service]
+            className = folder.title()
+        else:
+            folder = service
+            if service in Config.KEYWORD_SERVICES:
+                folder = service + '_'
+            className = service.title()
+        
         module = 'services.' + folder + '.' + className
         
         ServiceClass = getattr(importlib.import_module(module), className)
