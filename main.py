@@ -141,15 +141,19 @@ for acctId, cred in rolesCred.items():
     services = _cli_options['services'].split(',')
     
     # Apply service name mapping
+    print(f"DEBUG: Original services: {services}")
     mapped_services = []
     for service in services:
+        service = service.strip()  # Remove any whitespace
         if service in Config.SERVICE_NAME_MAPPING:
             mapped_service = Config.SERVICE_NAME_MAPPING[service]
             print(f"DEBUG: Mapping service '{service}' to '{mapped_service}'")
             mapped_services.append(mapped_service)
         else:
+            print(f"DEBUG: No mapping needed for service '{service}'")
             mapped_services.append(service)
     services = mapped_services
+    print(f"DEBUG: Final services: {services}")
     
     regions = _cli_options['regions'].split(',')
     

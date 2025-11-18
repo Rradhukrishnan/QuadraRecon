@@ -40,7 +40,9 @@ class Config:
         'securityhub': 'securityhub',  # Handle both variations
         'access-analyzer': 'accessanalyzer',
         'accessanalyzer': 'accessanalyzer',  # Handle both variations
-        'inspector': 'inspector'  # Ensure proper mapping for inspector
+        'inspector': 'inspector',  # Ensure proper mapping for inspector
+        'route53': 'route53',  # Ensure proper mapping for route53
+        'ssm': 'ssm'  # Ensure proper mapping for ssm
     }
     
     CURRENT_REGION = 'us-east-1'
