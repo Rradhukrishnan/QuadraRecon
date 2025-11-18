@@ -1,22 +1,22 @@
 from services.Evaluator import Evaluator
+from botocore.exceptions import ClientError
 
 class ConfigDriver(Evaluator):
-    def __init__(self, resource, client, resource_type):
+    def __init__(self, resource, client):
         super().__init__()
         self.resource = resource
         self.client = client
-        self.resource_type = resource_type
         self._resourceName = resource.get('name', 'ConfigService')
         self.init()
 
     def _checkConfigEnabled(self):
-        if self.resource_type == 'service' and not self.resource:
+        if not self.resource:
             self.results['ConfigEnabled'] = [-1, 'Config not enabled']
         else:
             self.results['ConfigEnabled'] = [1, 'Config enabled']
 
     def _checkRecorderStatus(self):
-        if self.resource_type == 'recorder':
+        if self.resource:
             try:
                 response = self.client.describe_configuration_recorder_status()
                 statuses = response.get('ConfigurationRecordersStatus', [])
@@ -26,30 +26,8 @@ class ConfigDriver(Evaluator):
                     self.results['RecorderStatus'] = [1, 'Recording active']
                 else:
                     self.results['RecorderStatus'] = [-1, 'Recording inactive']
-            except Exception:
+            except ClientError:
                 self.results['RecorderStatus'] = [-1, 'Unable to check status']
-
-    def _checkDeliveryChannel(self):
-        try:
-            response = self.client.describe_delivery_channels()
-            channels = response.get('DeliveryChannels', [])
-            if channels:
-                self.results['DeliveryChannel'] = [1, f'{len(channels)} delivery channels configured']
-            else:
-                self.results['DeliveryChannel'] = [-1, 'No delivery channels configured']
-        except Exception:
-            self.results['DeliveryChannel'] = [-1, 'Unable to check delivery channels']
-
-    def _checkConfigRules(self):
-        try:
-            response = self.client.describe_config_rules()
-            rules = response.get('ConfigRules', [])
-            if len(rules) > 0:
-                self.results['ConfigRules'] = [1, f'{len(rules)} config rules active']
-            else:
-                self.results['ConfigRules'] = [-1, 'No config rules configured']
-        except Exception:
-            self.results['ConfigRules'] = [-1, 'Unable to check config rules']
 
     def _checkComplianceStatus(self):
         try:
@@ -61,5 +39,5 @@ class ConfigDriver(Evaluator):
                 self.results['ComplianceStatus'] = [-1, f'{non_compliant} non-compliant resources']
             else:
                 self.results['ComplianceStatus'] = [1, 'All resources compliant']
-        except Exception:
+        except ClientError:
             self.results['ComplianceStatus'] = [0, 'Unable to check compliance']
