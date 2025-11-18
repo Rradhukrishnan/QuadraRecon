@@ -35,8 +35,11 @@ class Config:
     SERVICE_NAME_MAPPING = {
         'config': 'awsconfig',
         'devops-guru': 'devopsguru',
+        'devopsguru': 'devopsguru',  # Handle both variations
         'security-hub': 'securityhub',
-        'access-analyzer': 'accessanalyzer'
+        'securityhub': 'securityhub',  # Handle both variations
+        'access-analyzer': 'accessanalyzer',
+        'accessanalyzer': 'accessanalyzer'  # Handle both variations
     }
     
     CURRENT_REGION = 'us-east-1'
