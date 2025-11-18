@@ -43,8 +43,13 @@ class Screener:
         service = service.split('::')
         
         # Apply service name mapping early
+        original_service = service[0]
         if service[0] in Config.SERVICE_NAME_MAPPING:
             service[0] = Config.SERVICE_NAME_MAPPING[service[0]]
+            print(f"DEBUG: Mapped service '{original_service}' to '{service[0]}'")
+        else:
+            print(f"DEBUG: No mapping needed for service '{service[0]}'")
+        print(f"DEBUG: Final service name: '{service[0]}'")
         
         _regions = ['GLOBAL'] if service[0] in Config.GLOBAL_SERVICES else regions
         
@@ -157,6 +162,7 @@ class Screener:
         className = service.title()
         module = 'services.' + folder + '.' + className
         
+        print(f"DEBUG: Attempting to import module: '{module}' with class: '{className}'")
         ServiceClass = getattr(importlib.import_module(module), className)
         return ServiceClass
     
