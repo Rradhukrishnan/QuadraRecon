@@ -33,7 +33,9 @@ class Config:
     
     # Service name mapping for renamed services
     SERVICE_NAME_MAPPING = {
-        'config': 'awsconfig'
+        'config': 'awsconfig',
+        'aws-config': 'awsconfig',
+        'awsconfig': 'awsconfig'
     }
     
     CURRENT_REGION = 'us-east-1'
