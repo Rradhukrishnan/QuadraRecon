@@ -53,5 +53,16 @@
         "additionalCost": 0,
         "needFullTest": 0,
         "ref": ["[Notifications]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-notifications.html>"]
+    },
+    "InsightsCheck": {
+        "category": "O",
+        "^description": "DevOps Guru insights check completed.",
+        "shortDesc": "Insights Check",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[DevOps Guru Insights]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html>"]
     }
 }
