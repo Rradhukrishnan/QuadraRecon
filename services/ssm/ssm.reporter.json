@@ -1,0 +1,57 @@
+{
+    "ManagedInstances": {
+        "category": "O",
+        "^description": "No EC2 instances are managed by Systems Manager. Install SSM Agent and configure IAM roles for instance management.",
+        "shortDesc": "Enable SSM Management",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[SSM Agent]<https://docs.aws.amazon.com/systems-manager/latest/userguide/ssm-agent.html>"]
+    },
+    "PatchCompliance": {
+        "category": "S",
+        "^description": "{$COUNT} instances are not patch compliant. Configure patch management for security updates.",
+        "shortDesc": "Fix Patch Compliance",
+        "criticality": "H",
+        "downtime": 1,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": ["[Patch Manager]<https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-patch.html>"]
+    },
+    "MaintenanceWindows": {
+        "category": "O",
+        "^description": "No maintenance windows are configured. Set up maintenance windows for automated patching and maintenance.",
+        "shortDesc": "Configure Maintenance Windows",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Maintenance Windows]<https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-maintenance.html>"]
+    },
+    "ParameterStore": {
+        "category": "S",
+        "^description": "Parameter Store is not being used. Use Parameter Store for secure configuration management.",
+        "shortDesc": "Use Parameter Store",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Parameter Store]<https://docs.aws.amazon.com/systems-manager/latest/userguide/systems-manager-parameter-store.html>"]
+    },
+    "SessionManager": {
+        "category": "S",
+        "^description": "Session Manager is not configured. Enable Session Manager for secure shell access without SSH keys.",
+        "shortDesc": "Configure Session Manager",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Session Manager]<https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html>"]
+    }
+}

@@ -1,0 +1,57 @@
+{
+    "ConfigEnabled": {
+        "category": "S",
+        "^description": "AWS Config is not enabled in this region. Enable Config to track resource configurations and compliance.",
+        "shortDesc": "Enable AWS Config",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[AWS Config]<https://docs.aws.amazon.com/config/latest/developerguide/getting-started.html>"]
+    },
+    "RecorderStatus": {
+        "category": "S",
+        "^description": "{$COUNT} Config recorders are not actively recording. Ensure recorders are active for compliance monitoring.",
+        "shortDesc": "Activate Config Recording",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Config Recorder]<https://docs.aws.amazon.com/config/latest/developerguide/stop-start-recorder.html>"]
+    },
+    "DeliveryChannel": {
+        "category": "O",
+        "^description": "{$COUNT} Config services lack delivery channels. Configure delivery channels to store configuration data.",
+        "shortDesc": "Configure Delivery Channel",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[Delivery Channel]<https://docs.aws.amazon.com/config/latest/developerguide/manage-delivery-channel.html>"]
+    },
+    "ConfigRules": {
+        "category": "S",
+        "^description": "{$COUNT} Config services have no rules configured. Add Config rules for automated compliance checking.",
+        "shortDesc": "Add Config Rules",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[Config Rules]<https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config.html>"]
+    },
+    "ComplianceStatus": {
+        "category": "S",
+        "^description": "{$COUNT} Config services report non-compliant resources. Review and remediate compliance issues.",
+        "shortDesc": "Fix Compliance Issues",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": ["[Compliance]<https://docs.aws.amazon.com/config/latest/developerguide/compliance-by-config-rule.html>"]
+    }
+}

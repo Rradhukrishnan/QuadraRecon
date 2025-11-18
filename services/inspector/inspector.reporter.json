@@ -1,0 +1,46 @@
+{
+    "InspectorEnabled": {
+        "category": "S",
+        "^description": "Amazon Inspector is not enabled. Enable Inspector for automated vulnerability assessments.",
+        "shortDesc": "Enable Amazon Inspector",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[Amazon Inspector]<https://docs.aws.amazon.com/inspector/latest/user/what-is-inspector.html>"]
+    },
+    "HighSeverityFindings": {
+        "category": "S",
+        "^description": "{$COUNT} Inspector instances report high severity vulnerability findings. Review and remediate vulnerabilities.",
+        "shortDesc": "Fix High Severity Vulnerabilities",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": ["[Managing Findings]<https://docs.aws.amazon.com/inspector/latest/user/findings.html>"]
+    },
+    "ResourceCoverage": {
+        "category": "S",
+        "^description": "{$COUNT} Inspector instances have no resources under coverage. Ensure resources are being scanned.",
+        "shortDesc": "Increase Resource Coverage",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Resource Coverage]<https://docs.aws.amazon.com/inspector/latest/user/scanning.html>"]
+    },
+    "ScanTypesEnabled": {
+        "category": "S",
+        "^description": "{$COUNT} Inspector instances have no scan types enabled. Enable EC2 and ECR scanning for comprehensive coverage.",
+        "shortDesc": "Enable Scan Types",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[Scan Types]<https://docs.aws.amazon.com/inspector/latest/user/scanning.html>"]
+    }
+}

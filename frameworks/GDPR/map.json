@@ -32,6 +32,9 @@
     },
     "Route53.": {
       "1": ["route53.QueryLoggingEnabled"]
+    },
+    "Config.": {
+      "1": ["config.ConfigEnabled"]
     }
   }
 }

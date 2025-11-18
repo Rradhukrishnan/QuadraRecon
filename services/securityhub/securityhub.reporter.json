@@ -1,0 +1,57 @@
+{
+    "HubEnabled": {
+        "category": "S",
+        "^description": "AWS Security Hub is not enabled. Enable Security Hub for centralized security findings management.",
+        "shortDesc": "Enable Security Hub",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[Security Hub]<https://docs.aws.amazon.com/securityhub/latest/userguide/what-is-securityhub.html>"]
+    },
+    "StandardsEnabled": {
+        "category": "S",
+        "^description": "{$COUNT} Security Hub instances have no security standards enabled. Enable security standards for automated compliance checking.",
+        "shortDesc": "Enable Security Standards",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[Security Standards]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-standards.html>"]
+    },
+    "CriticalFindings": {
+        "category": "S",
+        "^description": "{$COUNT} Security Hub instances have critical or high severity findings. Review and remediate security findings.",
+        "shortDesc": "Remediate Critical Findings",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 1,
+        "ref": ["[Managing Findings]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-findings.html>"]
+    },
+    "SecurityIntegrations": {
+        "category": "S",
+        "^description": "{$COUNT} Security Hub instances have no security tool integrations. Enable integrations for comprehensive security monitoring.",
+        "shortDesc": "Enable Security Integrations",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Product Integrations]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-partner-providers.html>"]
+    },
+    "SecurityInsights": {
+        "category": "O",
+        "^description": "{$COUNT} Security Hub instances have no custom insights configured. Create insights for better security visibility.",
+        "shortDesc": "Configure Security Insights",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Custom Insights]<https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-insights.html>"]
+    }
+}

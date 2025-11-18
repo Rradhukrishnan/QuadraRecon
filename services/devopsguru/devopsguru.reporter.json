@@ -1,0 +1,57 @@
+{
+    "DevOpsGuruEnabled": {
+        "category": "O",
+        "^description": "Amazon DevOps Guru is not enabled. Enable DevOps Guru for ML-powered operational insights.",
+        "shortDesc": "Enable DevOps Guru",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[DevOps Guru]<https://docs.aws.amazon.com/devops-guru/latest/userguide/welcome.html>"]
+    },
+    "ActiveInsights": {
+        "category": "O",
+        "^description": "{$COUNT} DevOps Guru instances have active insights requiring attention. Review and act on operational insights.",
+        "shortDesc": "Review Active Insights",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Working with Insights]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-insights.html>"]
+    },
+    "ResourceCoverage": {
+        "category": "O",
+        "^description": "{$COUNT} DevOps Guru instances have no resources under monitoring. Configure resource collections for monitoring.",
+        "shortDesc": "Configure Resource Monitoring",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Resource Collections]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-resource-collections.html>"]
+    },
+    "AnomalyDetection": {
+        "category": "P",
+        "^description": "{$COUNT} DevOps Guru instances have anomaly detection issues. Ensure anomaly detection is properly configured.",
+        "shortDesc": "Fix Anomaly Detection",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Anomaly Detection]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-anomalies.html>"]
+    },
+    "NotificationConfig": {
+        "category": "O",
+        "^description": "{$COUNT} DevOps Guru instances lack notification integration. Configure OpsCenter or SNS for alerts.",
+        "shortDesc": "Configure Notifications",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Notifications]<https://docs.aws.amazon.com/devops-guru/latest/userguide/working-with-notifications.html>"]
+    }
+}

@@ -43,6 +43,26 @@
       "1": ["route53.DNSSECEnabled"],
       "2": ["route53.QueryLoggingEnabled"],
       "3": ["route53.HealthCheckAssociation"]
+    },
+    "AccessAnalyzer.": {
+      "1": ["accessanalyzer.AnalyzerStatus"],
+      "2": ["accessanalyzer.ActiveFindings"]
+    },
+    "Config.": {
+      "1": ["config.ConfigEnabled"],
+      "2": ["config.ComplianceStatus"]
+    },
+    "SecurityHub.": {
+      "1": ["securityhub.HubEnabled"],
+      "2": ["securityhub.CriticalFindings"]
+    },
+    "Inspector.": {
+      "1": ["inspector.InspectorEnabled"],
+      "2": ["inspector.HighSeverityFindings"]
+    },
+    "SSM.": {
+      "1": ["ssm.PatchCompliance"],
+      "2": ["ssm.SessionManager"]
     }
   }
 }

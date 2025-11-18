@@ -36,6 +36,12 @@
     "Route53.": {
       "1": ["route53.DNSSECEnabled"],
       "2": ["route53.QueryLoggingEnabled"]
+    },
+    "SecurityHub.": {
+      "1": ["securityhub.HubEnabled"]
+    },
+    "Config.": {
+      "1": ["config.ConfigEnabled"]
     }
   }
 }

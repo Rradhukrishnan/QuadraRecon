@@ -1,0 +1,46 @@
+{
+    "AnalyzerStatus": {
+        "category": "S",
+        "^description": "{$COUNT} Access Analyzers are not active. Ensure analyzers are active to continuously monitor resource access.",
+        "shortDesc": "Activate Access Analyzer",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Access Analyzer]<https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html>"]
+    },
+    "AnalyzerType": {
+        "category": "S",
+        "^description": "{$COUNT} Access Analyzers have incorrect type configuration. Use appropriate analyzer type for your needs.",
+        "shortDesc": "Configure Analyzer Type",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Analyzer Types]<https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-getting-started.html>"]
+    },
+    "ActiveFindings": {
+        "category": "S",
+        "^description": "{$COUNT} Access Analyzers have active findings requiring review. Review and remediate access findings.",
+        "shortDesc": "Review Active Findings",
+        "criticality": "H",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Review Findings]<https://docs.aws.amazon.com/IAM/latest/UserGuide/access-analyzer-findings.html>"]
+    },
+    "AnalyzerTagging": {
+        "category": "O",
+        "^description": "{$COUNT} Access Analyzers are not properly tagged. Add tags for better resource management.",
+        "shortDesc": "Add Resource Tags",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Tagging Resources]<https://docs.aws.amazon.com/general/latest/gr/aws_tagging.html>"]
+    }
+}

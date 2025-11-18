@@ -44,6 +44,13 @@
       "1": ["route53.DNSSECEnabled"],
       "2": ["route53.HealthCheckAssociation"],
       "3": ["route53.QueryLoggingEnabled"]
+    },
+    "SecurityHub.": {
+      "1": ["securityhub.HubEnabled"],
+      "2": ["securityhub.CriticalFindings"]
+    },
+    "DevOpsGuru.": {
+      "1": ["devopsguru.DevOpsGuruEnabled"]
     }
   }
 }
