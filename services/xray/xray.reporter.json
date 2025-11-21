@@ -1,0 +1,46 @@
+{
+    "TracingEnabled": {
+        "category": "O",
+        "^description": "X-Ray tracing is not active. Enable X-Ray tracing for distributed application monitoring.",
+        "shortDesc": "Enable X-Ray Tracing",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 1,
+        "needFullTest": 0,
+        "ref": ["[X-Ray Tracing]<https://docs.aws.amazon.com/xray/latest/devguide/xray-concepts.html#xray-concepts-tracingheader>"]
+    },
+    "ServiceMap": {
+        "category": "O",
+        "^description": "Service has no connections in X-Ray service map. Ensure applications are properly instrumented.",
+        "shortDesc": "Configure Service Map",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Service Map]<https://docs.aws.amazon.com/xray/latest/devguide/xray-console-servicemap.html>"]
+    },
+    "EncryptionEnabled": {
+        "category": "S",
+        "^description": "X-Ray traces are not encrypted. Enable encryption at rest for sensitive trace data.",
+        "shortDesc": "Enable Trace Encryption",
+        "criticality": "M",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[X-Ray Encryption]<https://docs.aws.amazon.com/xray/latest/devguide/xray-console-encryption.html>"]
+    },
+    "SamplingRules": {
+        "category": "C",
+        "^description": "No custom X-Ray sampling rules configured. Configure sampling rules to optimize costs and performance.",
+        "shortDesc": "Configure Sampling Rules",
+        "criticality": "L",
+        "downtime": 0,
+        "slowness": 0,
+        "additionalCost": 0,
+        "needFullTest": 0,
+        "ref": ["[Sampling Rules]<https://docs.aws.amazon.com/xray/latest/devguide/xray-console-sampling.html>"]
+    }
+}
