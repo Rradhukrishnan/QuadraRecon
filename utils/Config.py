@@ -35,7 +35,8 @@ class Config:
     SERVICE_NAME_MAPPING = {
         'config': 'awsconfig',
         'aws-config': 'awsconfig',
-        'awsconfig': 'awsconfig'
+        'awsconfig': 'awsconfig',
+        'xray': 'xray'
     }
     
     CURRENT_REGION = 'us-east-1'
